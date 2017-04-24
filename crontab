@@ -1,0 +1,1 @@
+* * * * * ubuntu /bin/bash /home/ubuntu/apps/ethics_monitor_share_pages/repository/run_on_server.sh fab $DEPLOYMENT_TARGET cron_jobs.test >/var/log/ethics_monitor_share_pages/crontab.log 2>&1
