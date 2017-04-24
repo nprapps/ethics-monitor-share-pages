@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Trump Ethics Monitor: {{ promise.title }}</title>
+
+    {% if not DEBUG %}
+    <script>
+    window.location = '{{ SEAMUS_URL }}?promise={{ promise.slug }}';
+    </script>
+    {% endif %}
+
+    {# Twitter #}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="{{ twitter_handle }}">
+    <meta name="twitter:image" content="{{ promise.image }}" />
+
+    {# Facebook #}
+    <meta property="og:title" content="Trump Ethics Monitor - {{ promise.title }}" />
+    <meta property="og:url" content="{{ S3_BASE_URL }}/share/{{ promise.slug }}.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content='{{ promise.primary_quote|safe }}' />
+    <meta property="og:image" content="{{ promise.image }}" />
+    <meta property="og:site_name" content="NPR.org" />
+
+    {# Google News #}
+    <meta name="thumbnail" content="{{ promise.image }}" />
+</head>
+
+<body>
+</body>
+
+</html>

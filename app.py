@@ -37,6 +37,17 @@ def index():
 
     return make_response(render_template('index.html', **context))
 
+@app.route('/share/<promise>/')
+@oauth.oauth_required
+def share(promise):
+    context = make_context()
+
+    for row in context['COPY']['data']:
+        if row['slug'] == promise:
+            context['promise'] = row
+
+    return make_response(render_template('share.html', **context))
+
 app.register_blueprint(static.static)
 app.register_blueprint(oauth.oauth)
 

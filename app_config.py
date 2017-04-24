@@ -92,13 +92,14 @@ DEBUG = True
 """
 COPY EDITING
 """
-COPY_GOOGLE_DOC_KEY = '1inbod_7Yf0hOZCGuYsO6MqLgsxW4uFxo1W0F0cIzHIY'
+COPY_GOOGLE_DOC_KEY = '1vIl6QGPUhnhbT4bEtQTmX-4-cr0yOQ1dyJTZqvWobKA'
 COPY_PATH = 'data/copy.xlsx'
 
 """
 SHARING
 """
 SHARE_URL = 'http://%s/%s/' % (PRODUCTION_S3_BUCKET, PROJECT_SLUG)
+SEAMUS_URL = 'http://www.npr.org/2017/02/17/513724796/trump-ethics-monitor-has-the-president-kept-his-promises/'
 
 
 """

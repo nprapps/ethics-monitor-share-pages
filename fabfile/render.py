@@ -9,6 +9,7 @@ import logging
 import os
 
 from fabric.api import local, task
+from render_utils import make_context
 
 import app
 import app_config
@@ -117,6 +118,7 @@ def render_all():
         # Convert trailing slashes to index.html files
         if rule_string.endswith('/'):
             filename = 'www' + rule_string + 'index.html'
+
         elif rule_string.endswith('.html'):
             filename = 'www' + rule_string
         else:
@@ -138,11 +140,24 @@ def render_all():
 
             view = _view_from_name(name)
 
-            content = view().data
+            if rule_string.startswith('/share'):
+                context = make_context()
+                for row in context['COPY']['data']:
+                    filename = 'www/share/{0}.html'.format(row['slug'])
+                    print('making {0}'.format(filename))
+                    dirname = os.path.dirname(filename)
 
-            compiled_includes = g.compiled_includes
+                    if not (os.path.exists(dirname)):
+                        os.makedirs(dirname)
 
-        # Write rendered view
-        # NB: Flask response object has utf-8 encoded the data
-        with open(filename, 'w') as f:
-            f.write(content)
+                    content = view(row['slug']).data
+
+                    compiled_includes = g.compiled_includes
+                    with open(filename, 'w') as f:
+                        f.write(content)
+            else:
+                content = view().data
+                compiled_includes = g.compiled_includes
+
+                with open(filename, 'w') as f:
+                    f.write(content)
