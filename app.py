@@ -14,6 +14,7 @@ import oauth
 import static
 
 from flask import Flask, make_response, render_template
+from num2words import num2words
 from render_utils import make_context, smarty_filter, urlencode_filter
 from werkzeug.debug import DebuggedApplication
 
@@ -22,6 +23,7 @@ app.debug = app_config.DEBUG
 
 app.add_template_filter(smarty_filter, name='smarty')
 app.add_template_filter(urlencode_filter, name='urlencode')
+
 
 logging.basicConfig(format=app_config.LOG_FORMAT)
 logger = logging.getLogger(__name__)
@@ -40,11 +42,22 @@ def index():
 @app.route('/share/<promise>/')
 @oauth.oauth_required
 def share(promise):
+    CATEGORY_KEY = {
+        'Statement': 'have no evidence of progress.',
+        'Evidence': 'have some evidence of progress.',
+        'Resolution': 'have been resolved.',
+        'Probation': 'are under watch for the duration of Trump\'s presidency.'
+    }
+
     context = make_context()
 
     for row in context['COPY']['data']:
         if row['slug'] == promise:
+            total = context['COPY']['overview_data'][row['current_status']]['value']
+            context['total'] = num2words(int(total))
+            context['category'] = CATEGORY_KEY[row['current_status']]
             context['promise'] = row
+
 
     return make_response(render_template('share.html', **context))
 

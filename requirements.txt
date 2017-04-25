@@ -15,6 +15,7 @@ gunicorn==19.1.1
 httplib2==0.9
 jmespath==0.2.1
 nose==1.2.1
+num2words==0.5.4
 odict==1.5.1
 openpyxl==2.2.0
 ply==3.4
@@ -22,7 +23,7 @@ pyasn1==0.1.7
 pycrypto==2.6
 python-dateutil==2.2
 requests==2.5.0
-six==1.5.2
+six==1.10.0
 slimit==0.7.4
 smartypants==1.8.6
 ssh==1.7.14

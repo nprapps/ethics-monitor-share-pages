@@ -13,18 +13,19 @@
     {# Twitter #}
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="{{ twitter_handle }}">
-    <meta name="twitter:image" content="{{ promise.image }}" />
+    <meta name="twitter:image" content="https:{{ S3_BASE_URL}}/assets/{{ promise.social_image }}" />
 
     {# Facebook #}
-    <meta property="og:title" content="Trump Ethics Monitor - {{ promise.title }}" />
-    <meta property="og:url" content="{{ S3_BASE_URL }}/share/{{ promise.slug }}.html" />
+    <meta property="og:title" content="Trump Ethics Monitor | {{ promise.title }}" />
+    <meta property="og:url" content="https:{{ S3_BASE_URL }}/share/{{ promise.slug }}.html" />
     <meta property="og:type" content="article" />
-    <meta property="og:description" content='{{ promise.primary_quote|safe }}' />
-    <meta property="og:image" content="{{ promise.image }}" />
+    <meta property="og:description" content="We're tracking President Trump's 10 ethics-related promises. This is one of {{ total }} that {{ category }}" />
+    <meta property="og:image" content="https:{{ S3_BASE_URL}}/assets/{{ promise.social_image }}" />
     <meta property="og:site_name" content="NPR.org" />
+    <meta property="fb:app_id" content="138837436154588" />
 
     {# Google News #}
-    <meta name="thumbnail" content="{{ promise.image }}" />
+    <meta name="thumbnail" content="https:{{ S3_BASE_URL}}/assets/{{ promise.social_image }}" />
 </head>
 
 <body>
