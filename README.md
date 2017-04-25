@@ -35,7 +35,7 @@ What is this?
 
 **Deploys redirect share pages for the [Trump Ethics Monitor](http://www.npr.org/2017/02/17/513724796/trump-ethics-monitor-has-the-president-kept-his-promises).**
 
-The social images live here in the assets rig.
+The social images live here in the assets rig. The Adobe Illustrator file used to create the social images can be found on Titan at `Design/staff_files/katiepark/trump-ethics-monitor/social-cards.ai`
 
 Assumptions
 -----------
