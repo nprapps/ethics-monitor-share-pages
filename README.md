@@ -33,7 +33,9 @@ ethics-monitor-share-pages
 What is this?
 -------------
 
-**TKTK: Describe ethics-monitor-share-pages here.**
+**Deploys redirect share pages for the [Trump Ethics Monitor](http://www.npr.org/2017/02/17/513724796/trump-ethics-monitor-has-the-president-kept-his-promises).**
+
+The social images live here in the assets rig.
 
 Assumptions
 -----------
