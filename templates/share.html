@@ -11,8 +11,10 @@
     {% endif %}
 
     {# Twitter #}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="{{ twitter_handle }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@npr">
+    <meta name="twitter:title" content="Trump Ethics Monitor | {{ promise.title }}">
+    <meta name="twitter:description" content="We're tracking President Trump's 10 ethics-related promises. This is one of {{ total }} that {{ category }}">
     <meta name="twitter:image" content="https:{{ S3_BASE_URL}}/assets/{{ promise.social_image }}" />
 
     {# Facebook #}
